@@ -1,0 +1,961 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE Ontology [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/peter/ontologies/2015/10/untitled-ontology-13"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.semanticweb.org/peter/ontologies/2015/10/untitled-ontology-13">
+    <Prefix name="" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <Class IRI="#AufgabenStatus"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Mitarbeiter"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Priorität"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Rückmeldung"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Status"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Ticket"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TicketQualifizierer"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#duplikat"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#erledigt"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#gelöst"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#geschlossen"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#geöffnet"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#hoch"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#inArbeit"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#inBearbeitung"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#nieder"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#normal"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#qualifiziert"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#unzureichendBearbeitet"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#wirdNichtGelöst"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#zufriedenstellendBearbeitet"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#bearbeitet"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#erstellt"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#gibtRückmeldungFür"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hat"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hatBearbeiteterZustand"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hatQualifikationFür"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hatRückgemeldetenZustand"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#qualifizieren"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#nachname"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#ticketBeschreibung"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#ticketID"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#vorname"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#AufgabenStatus_erledigt"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#AufgabenStatus_inArbeit"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#MA_TicketQualifizierer1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Mitarbeiter1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Mitarbeiter2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Mitarbeiter3"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PrioritätHoch"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PrioritätNieder"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PrioritätNormal"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Status_duplikat"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Status_gelöst"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Status_geschlossen"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Status_geöffnet"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Status_inBearbeitung"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Status_qualifiziert"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Status_wirdNichtGelöst"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#happyTicket"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#sadTicket"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#unzureichendBearbeitet1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#zufriedenstellendBearbeitet1"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="#AufgabenStatus"/>
+        <ObjectUnionOf>
+            <Class IRI="#erledigt"/>
+            <Class IRI="#inArbeit"/>
+        </ObjectUnionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Priorität"/>
+        <ObjectUnionOf>
+            <Class IRI="#hoch"/>
+            <Class IRI="#nieder"/>
+            <Class IRI="#normal"/>
+        </ObjectUnionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Rückmeldung"/>
+        <ObjectUnionOf>
+            <Class IRI="#unzureichendBearbeitet"/>
+            <Class IRI="#zufriedenstellendBearbeitet"/>
+        </ObjectUnionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Status"/>
+        <ObjectUnionOf>
+            <Class IRI="#duplikat"/>
+            <Class IRI="#gelöst"/>
+            <Class IRI="#geschlossen"/>
+            <Class IRI="#geöffnet"/>
+            <Class IRI="#inBearbeitung"/>
+            <Class IRI="#qualifiziert"/>
+            <Class IRI="#wirdNichtGelöst"/>
+        </ObjectUnionOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="#Mitarbeiter"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#bearbeitet"/>
+            <Class IRI="#Ticket"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Mitarbeiter"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#erstellt"/>
+            <Class IRI="#Ticket"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Mitarbeiter"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#gibtRückmeldungFür"/>
+            <Class IRI="#Rückmeldung"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Mitarbeiter"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#qualifizieren"/>
+            <Class IRI="#Ticket"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Ticket"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hat"/>
+            <Class IRI="#Priorität"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Ticket"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hat"/>
+            <Class IRI="#Status"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Ticket"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hat"/>
+            <Class IRI="#TicketQualifizierer"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Ticket"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatBearbeiteterZustand"/>
+            <Class IRI="#AufgabenStatus"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Ticket"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatBearbeiteterZustand"/>
+            <Class IRI="#Mitarbeiter"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Ticket"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatBearbeiteterZustand"/>
+            <Class IRI="#Status"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Ticket"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatQualifikationFür"/>
+            <Class IRI="#Mitarbeiter"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Ticket"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatQualifikationFür"/>
+            <Class IRI="#Priorität"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Ticket"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatQualifikationFür"/>
+            <Class IRI="#qualifiziert"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Ticket"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatRückgemeldetenZustand"/>
+            <Class IRI="#Mitarbeiter"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Ticket"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatRückgemeldetenZustand"/>
+            <Class IRI="#Rückmeldung"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Ticket"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hatRückgemeldetenZustand"/>
+            <Class IRI="#Status"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TicketQualifizierer"/>
+        <Class IRI="#Mitarbeiter"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TicketQualifizierer"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#qualifizieren"/>
+            <Class IRI="#Ticket"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#duplikat"/>
+        <Class IRI="#Status"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#erledigt"/>
+        <Class IRI="#AufgabenStatus"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#gelöst"/>
+        <Class IRI="#Status"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#geschlossen"/>
+        <Class IRI="#Status"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#geöffnet"/>
+        <Class IRI="#Status"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#hoch"/>
+        <Class IRI="#Priorität"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#inArbeit"/>
+        <Class IRI="#AufgabenStatus"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#inBearbeitung"/>
+        <Class IRI="#Status"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#nieder"/>
+        <Class IRI="#Priorität"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#normal"/>
+        <Class IRI="#Priorität"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#qualifiziert"/>
+        <Class IRI="#Status"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#unzureichendBearbeitet"/>
+        <Class IRI="#Rückmeldung"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#wirdNichtGelöst"/>
+        <Class IRI="#Status"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#zufriedenstellendBearbeitet"/>
+        <Class IRI="#Rückmeldung"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="#AufgabenStatus"/>
+        <Class IRI="#Mitarbeiter"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#AufgabenStatus"/>
+        <Class IRI="#Priorität"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#AufgabenStatus"/>
+        <Class IRI="#Rückmeldung"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#AufgabenStatus"/>
+        <Class IRI="#Status"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#AufgabenStatus"/>
+        <Class IRI="#Ticket"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Mitarbeiter"/>
+        <Class IRI="#Priorität"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Mitarbeiter"/>
+        <Class IRI="#Rückmeldung"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Mitarbeiter"/>
+        <Class IRI="#Status"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Mitarbeiter"/>
+        <Class IRI="#Ticket"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Priorität"/>
+        <Class IRI="#Rückmeldung"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Priorität"/>
+        <Class IRI="#Status"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Priorität"/>
+        <Class IRI="#Ticket"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Rückmeldung"/>
+        <Class IRI="#Status"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Rückmeldung"/>
+        <Class IRI="#Ticket"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Status"/>
+        <Class IRI="#Ticket"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#duplikat"/>
+        <Class IRI="#gelöst"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#duplikat"/>
+        <Class IRI="#geschlossen"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#duplikat"/>
+        <Class IRI="#geöffnet"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#duplikat"/>
+        <Class IRI="#inBearbeitung"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#duplikat"/>
+        <Class IRI="#qualifiziert"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#duplikat"/>
+        <Class IRI="#wirdNichtGelöst"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#erledigt"/>
+        <Class IRI="#inArbeit"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#gelöst"/>
+        <Class IRI="#geschlossen"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#gelöst"/>
+        <Class IRI="#geöffnet"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#gelöst"/>
+        <Class IRI="#inBearbeitung"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#gelöst"/>
+        <Class IRI="#qualifiziert"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#gelöst"/>
+        <Class IRI="#wirdNichtGelöst"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#geschlossen"/>
+        <Class IRI="#geöffnet"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#geschlossen"/>
+        <Class IRI="#inBearbeitung"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#geschlossen"/>
+        <Class IRI="#qualifiziert"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#geschlossen"/>
+        <Class IRI="#wirdNichtGelöst"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#geöffnet"/>
+        <Class IRI="#inBearbeitung"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#geöffnet"/>
+        <Class IRI="#qualifiziert"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#geöffnet"/>
+        <Class IRI="#wirdNichtGelöst"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#hoch"/>
+        <Class IRI="#nieder"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#hoch"/>
+        <Class IRI="#normal"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#inBearbeitung"/>
+        <Class IRI="#qualifiziert"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#inBearbeitung"/>
+        <Class IRI="#wirdNichtGelöst"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#nieder"/>
+        <Class IRI="#normal"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#qualifiziert"/>
+        <Class IRI="#wirdNichtGelöst"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#unzureichendBearbeitet"/>
+        <Class IRI="#zufriedenstellendBearbeitet"/>
+    </DisjointClasses>
+    <ClassAssertion>
+        <Class IRI="#erledigt"/>
+        <NamedIndividual IRI="#AufgabenStatus_erledigt"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#inArbeit"/>
+        <NamedIndividual IRI="#AufgabenStatus_inArbeit"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#TicketQualifizierer"/>
+        <NamedIndividual IRI="#MA_TicketQualifizierer1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Mitarbeiter"/>
+        <NamedIndividual IRI="#Mitarbeiter1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Mitarbeiter"/>
+        <NamedIndividual IRI="#Mitarbeiter2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Mitarbeiter"/>
+        <NamedIndividual IRI="#Mitarbeiter3"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#hoch"/>
+        <NamedIndividual IRI="#PrioritätHoch"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#nieder"/>
+        <NamedIndividual IRI="#PrioritätNieder"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#normal"/>
+        <NamedIndividual IRI="#PrioritätNormal"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#duplikat"/>
+        <NamedIndividual IRI="#Status_duplikat"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#gelöst"/>
+        <NamedIndividual IRI="#Status_gelöst"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#geschlossen"/>
+        <NamedIndividual IRI="#Status_geschlossen"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#geöffnet"/>
+        <NamedIndividual IRI="#Status_geöffnet"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#inBearbeitung"/>
+        <NamedIndividual IRI="#Status_inBearbeitung"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#qualifiziert"/>
+        <NamedIndividual IRI="#Status_qualifiziert"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#wirdNichtGelöst"/>
+        <NamedIndividual IRI="#Status_wirdNichtGelöst"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Ticket"/>
+        <NamedIndividual IRI="#happyTicket"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Ticket"/>
+        <NamedIndividual IRI="#sadTicket"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#unzureichendBearbeitet"/>
+        <NamedIndividual IRI="#unzureichendBearbeitet1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#zufriedenstellendBearbeitet"/>
+        <NamedIndividual IRI="#zufriedenstellendBearbeitet1"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hat"/>
+        <NamedIndividual IRI="#happyTicket"/>
+        <NamedIndividual IRI="#MA_TicketQualifizierer1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hat"/>
+        <NamedIndividual IRI="#happyTicket"/>
+        <NamedIndividual IRI="#Status_geöffnet"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hat"/>
+        <NamedIndividual IRI="#happyTicket"/>
+        <NamedIndividual IRI="#PrioritätHoch"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hatBearbeiteterZustand"/>
+        <NamedIndividual IRI="#happyTicket"/>
+        <NamedIndividual IRI="#AufgabenStatus_erledigt"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hatBearbeiteterZustand"/>
+        <NamedIndividual IRI="#happyTicket"/>
+        <NamedIndividual IRI="#Mitarbeiter1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hatBearbeiteterZustand"/>
+        <NamedIndividual IRI="#happyTicket"/>
+        <NamedIndividual IRI="#Status_gelöst"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hatQualifikationFür"/>
+        <NamedIndividual IRI="#happyTicket"/>
+        <NamedIndividual IRI="#Status_qualifiziert"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hatQualifikationFür"/>
+        <NamedIndividual IRI="#happyTicket"/>
+        <NamedIndividual IRI="#PrioritätNormal"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hatQualifikationFür"/>
+        <NamedIndividual IRI="#happyTicket"/>
+        <NamedIndividual IRI="#Mitarbeiter3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hatRückgemeldetenZustand"/>
+        <NamedIndividual IRI="#happyTicket"/>
+        <NamedIndividual IRI="#Status_geschlossen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hatRückgemeldetenZustand"/>
+        <NamedIndividual IRI="#happyTicket"/>
+        <NamedIndividual IRI="#Mitarbeiter1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hatRückgemeldetenZustand"/>
+        <NamedIndividual IRI="#happyTicket"/>
+        <NamedIndividual IRI="#zufriedenstellendBearbeitet1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hat"/>
+        <NamedIndividual IRI="#sadTicket"/>
+        <NamedIndividual IRI="#PrioritätHoch"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hat"/>
+        <NamedIndividual IRI="#sadTicket"/>
+        <NamedIndividual IRI="#Status_geöffnet"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hat"/>
+        <NamedIndividual IRI="#sadTicket"/>
+        <NamedIndividual IRI="#MA_TicketQualifizierer1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hatBearbeiteterZustand"/>
+        <NamedIndividual IRI="#sadTicket"/>
+        <NamedIndividual IRI="#Status_inBearbeitung"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hatBearbeiteterZustand"/>
+        <NamedIndividual IRI="#sadTicket"/>
+        <NamedIndividual IRI="#AufgabenStatus_inArbeit"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hatBearbeiteterZustand"/>
+        <NamedIndividual IRI="#sadTicket"/>
+        <NamedIndividual IRI="#Mitarbeiter2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hatQualifikationFür"/>
+        <NamedIndividual IRI="#sadTicket"/>
+        <NamedIndividual IRI="#Mitarbeiter1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hatQualifikationFür"/>
+        <NamedIndividual IRI="#sadTicket"/>
+        <NamedIndividual IRI="#PrioritätNieder"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hatQualifikationFür"/>
+        <NamedIndividual IRI="#sadTicket"/>
+        <NamedIndividual IRI="#Status_qualifiziert"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hatRückgemeldetenZustand"/>
+        <NamedIndividual IRI="#sadTicket"/>
+        <NamedIndividual IRI="#Status_geöffnet"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hatRückgemeldetenZustand"/>
+        <NamedIndividual IRI="#sadTicket"/>
+        <NamedIndividual IRI="#unzureichendBearbeitet1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hatRückgemeldetenZustand"/>
+        <NamedIndividual IRI="#sadTicket"/>
+        <NamedIndividual IRI="#Mitarbeiter3"/>
+    </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#nachname"/>
+        <NamedIndividual IRI="#MA_TicketQualifizierer1"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Hose</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#vorname"/>
+        <NamedIndividual IRI="#MA_TicketQualifizierer1"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Kurt Christian</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#nachname"/>
+        <NamedIndividual IRI="#Mitarbeiter1"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Wurst</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#vorname"/>
+        <NamedIndividual IRI="#Mitarbeiter1"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Hans</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#nachname"/>
+        <NamedIndividual IRI="#Mitarbeiter2"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Hoeneß</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#vorname"/>
+        <NamedIndividual IRI="#Mitarbeiter2"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Uli</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#nachname"/>
+        <NamedIndividual IRI="#Mitarbeiter3"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Müller</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#vorname"/>
+        <NamedIndividual IRI="#Mitarbeiter3"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Thomas</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#ticketBeschreibung"/>
+        <NamedIndividual IRI="#happyTicket"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">PC ist kaputt, das mag ich nicht :(</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#ticketID"/>
+        <NamedIndividual IRI="#happyTicket"/>
+        <Literal datatypeIRI="&xsd;integer">1</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#ticketBeschreibung"/>
+        <NamedIndividual IRI="#sadTicket"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Meine software ist kaputt.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#ticketID"/>
+        <NamedIndividual IRI="#sadTicket"/>
+        <Literal datatypeIRI="&xsd;integer">2</Literal>
+    </DataPropertyAssertion>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#qualifizieren"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#bearbeitet"/>
+        <Class IRI="#Mitarbeiter"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#erstellt"/>
+        <Class IRI="#Mitarbeiter"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#gibtRückmeldungFür"/>
+        <Class IRI="#Mitarbeiter"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hat"/>
+        <Class IRI="#Ticket"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hatBearbeiteterZustand"/>
+        <Class IRI="#Ticket"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hatQualifikationFür"/>
+        <Class IRI="#Ticket"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hatRückgemeldetenZustand"/>
+        <Class IRI="#Ticket"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#qualifizieren"/>
+        <Class IRI="#TicketQualifizierer"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#bearbeitet"/>
+        <ObjectUnionOf>
+            <Class IRI="#AufgabenStatus"/>
+            <Class IRI="#Mitarbeiter"/>
+            <Class IRI="#Status"/>
+            <Class IRI="#Ticket"/>
+        </ObjectUnionOf>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#erstellt"/>
+        <ObjectUnionOf>
+            <Class IRI="#Priorität"/>
+            <Class IRI="#Ticket"/>
+            <Class IRI="#TicketQualifizierer"/>
+            <Class IRI="#geöffnet"/>
+        </ObjectUnionOf>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#gibtRückmeldungFür"/>
+        <ObjectUnionOf>
+            <Class IRI="#Mitarbeiter"/>
+            <Class IRI="#Rückmeldung"/>
+            <Class IRI="#Status"/>
+            <Class IRI="#Ticket"/>
+        </ObjectUnionOf>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hat"/>
+        <ObjectUnionOf>
+            <Class IRI="#Priorität"/>
+            <Class IRI="#Status"/>
+            <Class IRI="#TicketQualifizierer"/>
+        </ObjectUnionOf>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hatBearbeiteterZustand"/>
+        <ObjectUnionOf>
+            <Class IRI="#AufgabenStatus"/>
+            <Class IRI="#Mitarbeiter"/>
+            <Class IRI="#Status"/>
+        </ObjectUnionOf>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hatQualifikationFür"/>
+        <ObjectUnionOf>
+            <Class IRI="#Mitarbeiter"/>
+            <Class IRI="#Priorität"/>
+            <Class IRI="#qualifiziert"/>
+        </ObjectUnionOf>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hatRückgemeldetenZustand"/>
+        <ObjectUnionOf>
+            <Class IRI="#Mitarbeiter"/>
+            <Class IRI="#Rückmeldung"/>
+            <Class IRI="#Status"/>
+        </ObjectUnionOf>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#qualifizieren"/>
+        <ObjectUnionOf>
+            <Class IRI="#Mitarbeiter"/>
+            <Class IRI="#Priorität"/>
+            <Class IRI="#Ticket"/>
+            <Class IRI="#qualifiziert"/>
+        </ObjectUnionOf>
+    </ObjectPropertyRange>
+    <DataPropertyDomain>
+        <DataProperty IRI="#nachname"/>
+        <Class IRI="#Mitarbeiter"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#ticketBeschreibung"/>
+        <Class IRI="#Ticket"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#ticketID"/>
+        <Class IRI="#Ticket"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#vorname"/>
+        <Class IRI="#Mitarbeiter"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#nachname"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#ticketBeschreibung"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#ticketID"/>
+        <Datatype abbreviatedIRI="xsd:int"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#vorname"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net -->
+
