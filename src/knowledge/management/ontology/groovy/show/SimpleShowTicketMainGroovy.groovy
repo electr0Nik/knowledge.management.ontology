@@ -39,12 +39,11 @@ class SimpleShowTicketMainGroovy {
 
     // get a given individual Ticket
     app.printDefaultInformation(app, ":happyTicket", ":hat", ":hatQualifikationFür", ":hatBearbeiteterZustand", ":hatRückgemeldetenZustand")
-
     app.printDefaultInformation(app, ":sadTicket", ":hat", ":hatBearbeiteterZustand", ":hatQualifikationFür", ":hatRückgemeldetenZustand")
 
     // get a given individual employee
-    app.printDefaultInformation(app, ":Mitarbeiter2", ":bearbeitet", ":erstellt", ":gibtRückmeldungFür",
-        ":hatBearbeiteterZustand", ":hatQualifikationFür", ":hatRückgemeldetenZustand")
+    app.printDefaultInformation(app, ":Mitarbeiter3", ":bearbeitet", ":erstellt", ":gibtRückmeldungFür", ":hatBearbeiteterZustand", ":hatQualifikationFür", ":hatRückgemeldetenZustand")
+    app.printDefaultInformation(app, ":MA_TicketQualifizierer1", ":bearbeitet", ":erstellt", ":gibtRückmeldungFür", ":hatBearbeiteterZustand", ":hatQualifikationFür", ":hatRückgemeldetenZustand")
 
   }
 
@@ -56,8 +55,7 @@ class SimpleShowTicketMainGroovy {
     println "\n"
   }
 
-  void printOWLObjectProperty(final SimpleShowTicketMainGroovy app, final OWLNamedIndividual individual, final OWLObjectProperty owlObjectProperty,
-                              final String objectPropertyIndividual) {
+  void printOWLObjectProperty(final SimpleShowTicketMainGroovy app, final OWLNamedIndividual individual, final OWLObjectProperty owlObjectProperty, final String objectPropertyIndividual) {
     println "${app.getInitializer().getRenderer().render(individual)} ${objectPropertyIndividual}"
     app.getInitializer().getReasoner().getObjectPropertyValues(individual, owlObjectProperty).getFlattened().each {
       println("\t${app.getInitializer().getRenderer().render(it)}")
@@ -74,12 +72,15 @@ class SimpleShowTicketMainGroovy {
       app.printOWLObjectProperty(app, individual, objProp, it)
     }
 
+    println "\n"
     //find to which classes the individual belongs
     Set<OWLClassExpression> assertedClasses = individual.getTypes(app.getInitializer().getOntology());
     for (OWLClass c : app.getInitializer().getReasoner().getTypes(individual, false).getFlattened()) {
       boolean asserted = assertedClasses.contains(c);
-      System.out.println((asserted ? "asserted" : "inferred") + " class for happyTicket: " + app.getInitializer().getRenderer().render(c));
+      println("\n${asserted ? 'asserted' : 'inferred'} class for happyTicket: ${app.getInitializer().getRenderer().render(c)}")
     }
+
+    println "\n"
     //list all object property values for the individual
     app.getInitializer().getOntology().getObjectPropertiesInSignature(true).each {
       final OWLObjectProperty objProp = it
@@ -88,5 +89,7 @@ class SimpleShowTicketMainGroovy {
         println "Object property for ${individualAsString} : ${app.getInitializer().getRenderer().render(objProp)} -> ${app.getInitializer().getRenderer().render(ind)}"
       }
     }
+
+    println "\n\n"
   }
 }
