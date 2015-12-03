@@ -13,9 +13,6 @@ import org.semanticweb.owlapi.reasoner.SimpleConfiguration
 import org.semanticweb.owlapi.vocab.PrefixOWLOntologyFormat
 import uk.ac.manchester.cs.owlapi.dlsyntax.DLSyntaxObjectRenderer
 
-/**
- * Created by nik on 02.12.15.
- */
 class OWLDefaultInitializer {
 
   final OWLOntologyManager manager

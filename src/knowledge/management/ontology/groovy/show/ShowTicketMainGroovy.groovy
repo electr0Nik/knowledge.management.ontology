@@ -48,7 +48,7 @@ class ShowTicketMainGroovy {
         /**
          * prints the ticket information
          */
-        app.printOWLDataProperty(app, owlNamedIndividual)
+        app.printOWLDataProperty(app, owlNamedIndividual, "")
 
         /**
          * prints the property information
@@ -58,11 +58,12 @@ class ShowTicketMainGroovy {
     }
   }
 
-  void printOWLDataProperty(final ShowTicketMainGroovy app, final OWLNamedIndividual owlNamedIndividual) {
+  void printOWLDataProperty(final ShowTicketMainGroovy app, final OWLNamedIndividual owlNamedIndividual, final String tabs) {
     app.getInitializer().getOntology().getDataPropertiesInSignature(true).each {
       final OWLDataProperty owlDataProperty = it
-      for (OWLLiteral ind : app.getInitializer().getReasoner().getDataPropertyValues(owlNamedIndividual, owlDataProperty))
-        println("\t\tOWLDataProperty: ${app.getInitializer().getRenderer().render(owlDataProperty)} -> ${app.getInitializer().getRenderer().render(ind)}")
+      for (OWLLiteral ind : app.getInitializer().getReasoner().getDataPropertyValues(owlNamedIndividual, owlDataProperty)) {
+        println("${tabs}\t\tOWLDataProperty: ${app.getInitializer().getRenderer().render(owlDataProperty)} -> ${app.getInitializer().getRenderer().render(ind)}")
+      }
     }
   }
 
@@ -77,6 +78,8 @@ class ShowTicketMainGroovy {
         app.getInitializer().getReasoner().getObjectPropertyValues(owlNamedIndividual, owlObjectProperty).getFlattened().each {
           final OWLNamedIndividual owlObjectPropertyNamedIndividual = it
           println("\t\t\tOWLNamedIndividual: ${app.getInitializer().getRenderer().render(owlObjectPropertyNamedIndividual)}")
+          app.printOWLDataProperty(app, owlObjectPropertyNamedIndividual, "\t\t")
+          //app.printOWLDataProperty(app, owlNamedIndividual)
         }
       }
     }
