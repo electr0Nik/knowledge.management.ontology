@@ -26,7 +26,7 @@ class OWLDefaultInitializer {
   //prepare ontology
   OWLDefaultInitializer() {
     manager = OWLManager.createOWLOntologyManager()
-    ontology = manager.loadOntologyFromOntologyDocument(new File(ApplicationConstants.FILE_LOCATION))
+    ontology = manager.loadOntologyFromOntologyDocument(new File(ApplicationConstants.FILE_LOCATION_V2))
     factory = manager.getOWLDataFactory()
     pm = (PrefixOWLOntologyFormat) manager.getOntologyFormat(ontology)
     pm.setDefaultPrefix(ApplicationConstants.BASE_URL + "#")

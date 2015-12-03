@@ -6,7 +6,9 @@ package knowledge.management.ontology.groovy.common
 class ApplicationConstants {
 
   static final String BASE_URL = "http://www.semanticweb.org/peter/ontologies/2015/10/untitled-ontology-13"
-  static final String FILE_LOCATION = "res/ticketOntology.owl"
+  static final String FILE_LOCATION_V1 = "res/ticketOntology.owl"
+  static final String FILE_LOCATION_V2 = "res/ticketOntology_v2.owl"
+  static final String FILE_LOCATION_CREATED = "res/ticketOntology_new_v1.owl"
 
   // OWL-Classes
   static final String OWL_CLASS_EMPLOYEE = "Mitarbeiter"

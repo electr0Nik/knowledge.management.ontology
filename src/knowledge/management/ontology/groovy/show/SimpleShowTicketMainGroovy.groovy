@@ -38,11 +38,12 @@ class SimpleShowTicketMainGroovy {
      */
 
     // get a given individual Ticket
-    app.printDefaultInformation(app, ":happyTicket", ":hat", ":hatQualifikationFür", ":hatBearbeiteterZustand", ":hatRückgemeldetenZustand")
+    app.printDefaultInformation(app, ":happyTicket", ":hat", ":hatQualifikationFür", ":hatBearbeiteterZustand", ":hatRückgemeldetenZustand", ":hatRückgemeldetenZustand")
     app.printDefaultInformation(app, ":sadTicket", ":hat", ":hatBearbeiteterZustand", ":hatQualifikationFür", ":hatRückgemeldetenZustand")
 
     // get a given individual employee
     app.printDefaultInformation(app, ":Mitarbeiter3", ":bearbeitet", ":erstellt", ":gibtRückmeldungFür", ":hatBearbeiteterZustand", ":hatQualifikationFür", ":hatRückgemeldetenZustand")
+    app.printDefaultInformation(app, ":Mitarbeiter2", ":bearbeitet", ":erstellt", ":gibtRückmeldungFür", ":hatBearbeiteterZustand", ":hatQualifikationFür", ":hatRückgemeldetenZustand")
     app.printDefaultInformation(app, ":MA_TicketQualifizierer1", ":bearbeitet", ":erstellt", ":gibtRückmeldungFür", ":hatBearbeiteterZustand", ":hatQualifikationFür", ":hatRückgemeldetenZustand")
 
   }
