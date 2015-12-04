@@ -1,13 +1,8 @@
 package knowledge.management.ontology.groovy.crud
 
+import knowledge.management.ontology.groovy.common.ApplicationConstants
 import knowledge.management.ontology.groovy.initializer.OWLDefaultInitializer
-import org.semanticweb.owlapi.model.AddAxiom
-import org.semanticweb.owlapi.model.IRI
-import org.semanticweb.owlapi.model.OWLAxiom
-import org.semanticweb.owlapi.model.OWLClass
-import org.semanticweb.owlapi.model.OWLClassAssertionAxiom
-import org.semanticweb.owlapi.model.OWLDeclarationAxiom
-import org.semanticweb.owlapi.model.OWLIndividual
+import org.semanticweb.owlapi.model.*
 
 /**
  * Created by nik on 03.12.15.
@@ -26,61 +21,91 @@ class SimpleTicketMainCRUDGroovy {
   static void main(String... args) {
     final SimpleTicketMainCRUDGroovy app = new SimpleTicketMainCRUDGroovy()
 
-    final OWLClass ticket = app.getInitializer().getFactory().getOWLClass(":Ticket", app.getInitializer().getPm())
+    // create classes
+
+    final OWLClass ticket = app.getInitializer().getFactory().getOWLClass(":${ApplicationConstants.OWL_CLASS_TICKET}", app.getInitializer().getPm())
+    final OWLClass employee = app.getInitializer().getFactory().getOWLClass(":${ApplicationConstants.OWL_CLASS_EMPLOYEE}", app.getInitializer().getPm())
+    final OWLClass qualifier = app.getInitializer().getFactory().getOWLClass(":${ApplicationConstants.OWL_CLASS_QUALIFIER}", app.getInitializer().getPm())
+    final OWLClass response = app.getInitializer().getFactory().getOWLClass(":${ApplicationConstants.OWL_CLASS_RESPONSE}", app.getInitializer().getPm())
+    final OWLClass priority = app.getInitializer().getFactory().getOWLClass(":${ApplicationConstants.OWL_CLASS_PRIORITY}", app.getInitializer().getPm())
+    final OWLClass state = app.getInitializer().getFactory().getOWLClass(":${ApplicationConstants.OWL_CLASS_STATE}", app.getInitializer().getPm())
+    final OWLClass taskState = app.getInitializer().getFactory().getOWLClass(":${ApplicationConstants.OWL_CLASS_TASK_STATE}", app.getInitializer().getPm())
+
     final OWLDeclarationAxiom declarationAxiomTickets = app.getInitializer().getFactory().getOWLDeclarationAxiom(ticket)
-    app.getInitializer().getManager().addAxiom(app.getInitializer().getOntology(), declarationAxiomTickets)
-
-    final OWLClass employee = app.getInitializer().getFactory().getOWLClass(":Mitarbeiter", app.getInitializer().getPm())
     final OWLDeclarationAxiom declarationAxiomEmployee = app.getInitializer().getFactory().getOWLDeclarationAxiom(employee)
+    final OWLDeclarationAxiom declarationAxiomQualifier = app.getInitializer().getFactory().getOWLDeclarationAxiom(qualifier)
+    final OWLDeclarationAxiom declarationAxiomResponse = app.getInitializer().getFactory().getOWLDeclarationAxiom(response)
+    final OWLDeclarationAxiom declarationAxiomPriority = app.getInitializer().getFactory().getOWLDeclarationAxiom(priority)
+    final OWLDeclarationAxiom declarationAxiomState = app.getInitializer().getFactory().getOWLDeclarationAxiom(state)
+    final OWLDeclarationAxiom declarationAxiomTaskState = app.getInitializer().getFactory().getOWLDeclarationAxiom(taskState)
+
+    app.getInitializer().getManager().addAxiom(app.getInitializer().getOntology(), declarationAxiomTickets)
     app.getInitializer().getManager().addAxiom(app.getInitializer().getOntology(), declarationAxiomEmployee)
+    app.getInitializer().getManager().addAxiom(app.getInitializer().getOntology(), declarationAxiomQualifier)
+    app.getInitializer().getManager().addAxiom(app.getInitializer().getOntology(), declarationAxiomResponse)
+    app.getInitializer().getManager().addAxiom(app.getInitializer().getOntology(), declarationAxiomPriority)
+    app.getInitializer().getManager().addAxiom(app.getInitializer().getOntology(), declarationAxiomState)
+    app.getInitializer().getManager().addAxiom(app.getInitializer().getOntology(), declarationAxiomTaskState)
 
-    final OWLClass employeeQualify = app.getInitializer().getFactory().getOWLClass(":TicketQualifizierer", app.getInitializer().getPm())
-    final OWLDeclarationAxiom declarationAxiomEmployeeQualify = app.getInitializer().getFactory().getOWLDeclarationAxiom(employeeQualify)
-    app.getInitializer().getManager().addAxiom(app.getInitializer().getOntology(), declarationAxiomEmployeeQualify)
+    /**
+     * add subclass relations to the new classes
+     */
+    // employee -> ticket ; ticket -> employee
+    final OWLAxiom axiomEmployeeToTicket = app.getInitializer().getFactory().getOWLSubClassOfAxiom(employee, ticket)
+    final OWLAxiom axiomTicketToEmployee = app.getInitializer().getFactory().getOWLSubClassOfAxiom(ticket, employee)
+    // employee -> response
+    final OWLAxiom axiomEmployeeToResponse = app.getInitializer().getFactory().getOWLSubClassOfAxiom(response, employee)
+    // ticket -> priority
+    final OWLAxiom axiomTicketToPriority = app.getInitializer().getFactory().getOWLSubClassOfAxiom(priority, ticket)
+    // ticket -> state
+    final OWLAxiom axiomTicketToState = app.getInitializer().getFactory().getOWLSubClassOfAxiom(state, ticket)
+    // ticket -> qualifier ; qualifier -> ticket
+    final OWLAxiom axiomTicketToQualifier = app.getInitializer().getFactory().getOWLSubClassOfAxiom(ticket, qualifier)
+    final OWLAxiom axiomQualifierToTicket = app.getInitializer().getFactory().getOWLSubClassOfAxiom(qualifier, ticket)
+    // ticket -> task_state
+    final OWLAxiom axiomTicketToTaskState = app.getInitializer().getFactory().getOWLSubClassOfAxiom(taskState, ticket)
+    // qualifier -> employee
+    final OWLAxiom axiomQualifierToEmployee = app.getInitializer().getFactory().getOWLSubClassOfAxiom(employee, qualifier)
 
-    //add subclass relations to the new classes
-    final OWLAxiom axiomEmployeeEmployee = app.getInitializer().getFactory().getOWLSubClassOfAxiom(employee, employeeQualify)
-    final AddAxiom addAxiom1 = new AddAxiom(app.getInitializer().getOntology(), axiomEmployeeEmployee);
-    app.getInitializer().getManager().applyChange(addAxiom1);
 
-    final OWLAxiom axiomEmployeeTicket = app.getInitializer().getFactory().getOWLSubClassOfAxiom(employee, ticket)
-    final AddAxiom addAxiom2 = new AddAxiom(app.getInitializer().getOntology(), axiomEmployeeTicket);
-    app.getInitializer().getManager().applyChange(addAxiom2);
+    final List<AddAxiom> axiomList = new ArrayList<>()
+    axiomList.add(new AddAxiom(app.getInitializer().getOntology(), axiomEmployeeToTicket))
+    axiomList.add(new AddAxiom(app.getInitializer().getOntology(), axiomEmployeeToResponse))
+    axiomList.add(new AddAxiom(app.getInitializer().getOntology(), axiomTicketToPriority))
+    axiomList.add(new AddAxiom(app.getInitializer().getOntology(), axiomTicketToState))
+    axiomList.add(new AddAxiom(app.getInitializer().getOntology(), axiomTicketToQualifier))
+    axiomList.add(new AddAxiom(app.getInitializer().getOntology(), axiomTicketToTaskState))
+    axiomList.add(new AddAxiom(app.getInitializer().getOntology(), axiomTicketToEmployee))
+    axiomList.add(new AddAxiom(app.getInitializer().getOntology(), axiomQualifierToEmployee))
+    axiomList.add(new AddAxiom(app.getInitializer().getOntology(), axiomQualifierToTicket))
+
+    //axiomList.each { app.getInitializer().getManager().applyChange(it) }
+
+
+    / test /
 
     //create individual for the malePerson class
-    final OWLIndividual ticket3 = app.getInitializer().getFactory().getOWLNamedIndividual(":happySadTicket", app.getInitializer().getPm());
-    final OWLDeclarationAxiom declarationAxiom4 = app.getInitializer().getFactory().getOWLDeclarationAxiom(ticket3);
-    app.getInitializer().getManager().addAxiom(app.getInitializer().getOntology(), declarationAxiom4);
+    final OWLIndividual owlIndividual = app.getInitializer().getFactory().getOWLNamedIndividual(":someTicket", app.getInitializer().getPm());
 
-    final OWLClassAssertionAxiom caAxiom = app.getInitializer().getFactory().getOWLClassAssertionAxiom(employee, ticket3);
-    app.getInitializer().getManager().addAxiom(app.getInitializer().getFactory(), caAxiom);
+    final OWLDeclarationAxiom declarationAxiomForIndividual = app.getInitializer().getFactory().getOWLDeclarationAxiom(owlIndividual);
+    app.getInitializer().getManager().addAxiom(app.getInitializer().getOntology(), declarationAxiomForIndividual);
 
-    // Individual Ticket also should belong to class Father
-    OWLClass father = app.getInitializer().getFactory().getOWLClass(":Mitarbeiter3", app.getInitializer().getPm());
-    OWLClassAssertionAxiom caAxiom2 = app.getInitializer().getFactory().getOWLClassAssertionAxiom(father, ticket3);
-    /*
-    manager.addAxiom(app.getInitializer().getOntology(), caAxiom2);
-     * /
+    final OWLClassAssertionAxiom classAssertionAxiom = app.getInitializer().getFactory().getOWLClassAssertionAxiom(ticket, owlIndividual);
+    app.getInitializer().getManager().addAxiom(app.getInitializer().getOntology(), classAssertionAxiom);
 
     //create a property
-    OWLObjectProperty isA = factory.getOWLObjectProperty(":isA", pm);
-    OWLDeclarationAxiom declarationAxiom5 = factory.getOWLDeclarationAxiom(isA);
-    manager.addAxiom(ontology, declarationAxiom5);
+    final OWLObjectProperty has = app.getInitializer().getFactory().getOWLObjectProperty(":hat", app.getInitializer().getPm());
+    final OWLDeclarationAxiom declarationAxiomForHas = app.getInitializer().getFactory().getOWLDeclarationAxiom(has);
+    app.getInitializer().getManager().addAxiom(app.getInitializer().getOntology(), declarationAxiomForHas);
 
-    //define domain and range for the property isA
-    OWLObjectPropertyDomainAxiom opd1 = factory.getOWLObjectPropertyDomainAxiom(isA, father);
-    OWLObjectPropertyRangeAxiom opd2 = factory.getOWLObjectPropertyRangeAxiom(isA, malePerson);
-    manager.addAxiom(ontology, opd1);
-    manager.addAxiom(ontology, opd2);
+    //define domain and range for the property has
+    final OWLObjectPropertyDomainAxiom opd1 = app.getInitializer().getFactory().getOWLObjectPropertyDomainAxiom(has, qualifier);
+    app.getInitializer().getManager().addAxiom(app.getInitializer().getOntology(), opd1);
 
-*/
+    / end /
 
 
-
-
-
-
-    final IRI documentIRI = IRI.create(new File("res/ticketOntology_new_v1.owl"))
+    final IRI documentIRI = IRI.create(new File("res/ticketOntology_v2_new_v1.owl"))
     app.getInitializer().getManager().saveOntology(app.getInitializer().getOntology(), documentIRI)
     print "\nExtended Ontology stored in ${documentIRI}"
   }
